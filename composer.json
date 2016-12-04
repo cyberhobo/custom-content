@@ -1,5 +1,5 @@
 {
-  "name": "brightnucleus/custom-content",
+  "name": "cyberhobo/custom-content-php54",
   "description": "Config-driven WordPress Custom Content Definitions (Custom Post Types, Custom Taxonomies).",
   "minimum-stability": "dev",
   "prefer-stable": true,
