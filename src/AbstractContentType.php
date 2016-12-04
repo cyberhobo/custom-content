@@ -42,7 +42,7 @@ abstract class AbstractContentType implements Registerable {
 	/*
 	 * Reserved terms that cannot be used as custom post type slug.
 	 */
-	const RESERVED_TERMS = [ ];
+	protected static $reserved_terms = [ ];
 
 	/**
 	 * Instantiate a CustomPostType object.
@@ -133,7 +133,7 @@ abstract class AbstractContentType implements Registerable {
 	 * @return bool Whether the term is reserved.
 	 */
 	protected function isReservedTerm( $slug ) {
-		return in_array( $slug, static::RESERVED_TERMS, true );
+		return in_array( $slug, static::$reserved_terms, true );
 	}
 
 	/**

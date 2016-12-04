@@ -57,7 +57,7 @@ class ArgumentCollection extends ArrayCollection {
 		];
 
 		foreach ( $array as $key => $string ) {
-			$array[ $key ] = sprintf( $string, ...$args );
+			$array[ $key ] = call_user_func_array( 'sprintf', $args );
 		}
 
 		return $array;

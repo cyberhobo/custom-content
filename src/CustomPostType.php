@@ -32,7 +32,7 @@ class CustomPostType extends AbstractContentType {
 	/*
 	 * Reserved terms that cannot be used as custom post type slug.
 	 */
-	const RESERVED_TERMS = [
+	protected static $reserved_terms = [
 		'post',
 		'page',
 		'attachment',

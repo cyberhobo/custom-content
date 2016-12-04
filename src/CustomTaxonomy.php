@@ -29,7 +29,7 @@ class CustomTaxonomy extends AbstractContentType {
 	/*
 	 * Reserved terms that cannot be used as custom taxonomy slug.
 	 */
-	const RESERVED_TERMS = [
+	protected static $reserved_terms = [
 		'post',
 		'page',
 		'attachment',

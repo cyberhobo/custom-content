@@ -48,6 +48,9 @@ class CustomTaxonomyTest extends PHPUnit_Framework_TestCase {
 	 */
 	public function testClassInstantiation() {
 		$config = ConfigFactory::create( [ ] );
+		Functions::expect('is_textdomain_loaded')->once()->andReturn(false);
+		Functions::expect('get_locale')->once()->andReturn('en_US');
+		Functions::expect('load_textdomain')->once();
 		$object = new CustomTaxonomy( $config );
 		$this->assertInstanceOf(
 			'BrightNucleus\CustomContent\CustomTaxonomy',
@@ -72,6 +75,7 @@ class CustomTaxonomyTest extends PHPUnit_Framework_TestCase {
 				Argument::POST_TYPES => [ 'post', 'page' ],
 			],
 		] );
+		Functions::expect('is_textdomain_loaded')->zeroOrMoreTimes()->andReturn(true);
 		$object = new CustomTaxonomy( $config );
 		$this->assertInstanceOf(
 			'BrightNucleus\CustomContent\CustomTaxonomy',
@@ -104,6 +108,7 @@ class CustomTaxonomyTest extends PHPUnit_Framework_TestCase {
 				],
 			],
 		] );
+		Functions::expect('is_textdomain_loaded')->zeroOrMoreTimes()->andReturn(true);
 		$object = new CustomTaxonomy( $config );
 		$this->assertInstanceOf(
 			'BrightNucleus\CustomContent\CustomTaxonomy',
