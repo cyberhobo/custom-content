@@ -109,6 +109,9 @@ abstract class AbstractContentType implements Registerable {
 	 * @throws ReservedTermException If the slug is a reserved term.
 	 */
 	public function register( $args = [ ] ) {
+		// Allow calls from do_action, which passes an empty string by default.
+		$args = $args ?: [];
+		
 		foreach ( $this->getConfigKeys() as $slug ) {
 
 			if ( $this->isReservedTerm( $slug ) ) {
